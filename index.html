@@ -182,6 +182,98 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-NeuralNetwork" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/24/NeuralNetwork/">NeuralNetwork</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/24/NeuralNetwork/" class="archive-article-date">
+  	<time datetime="2019-11-24T13:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">import</span> numpy</span><br><span class="line"> <span class="keyword">import</span> scipy.special</span><br><span class="line"> <span class="keyword">import</span> matplotlib.pyplot</span><br><span class="line"> %matplotlib inline</span><br><span class="line"> <span class="comment">#neural network class definition</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">neuralNetwork</span> :</span></span><br><span class="line"> 	<span class="comment"># initialise the neural network</span></span><br><span class="line"> 	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, inputnodes, hiddennodes, outputnodes, learningrate)</span> :</span></span><br><span class="line"> 		<span class="comment"># set number of nodes in each input, hidden, output layer</span></span><br><span class="line"> 		self.inodes = inputnodes</span><br><span class="line"> 		self.hnodes = hiddennodes</span><br><span class="line"> 		self.onodes = outputnodes</span><br><span class="line"></span><br><span class="line"> 		<span class="comment"># link weight matrices, wih and who</span></span><br><span class="line"> 		<span class="comment"># weights inside the arrays are w_i_j, where link in from node i to node j in next layer</span></span><br><span class="line"> 		<span class="comment"># w11 w21</span></span><br><span class="line"> 		<span class="comment"># w12 w22 etc</span></span><br><span class="line"> 		self.wih = numpy.random.normal(<span class="number">0.0</span>, pow(self.hnodes, <span class="number">-0.5</span>), (self.hnodes, self.inodes))</span><br><span class="line"> 		self.who = numpy.random.normal(<span class="number">0.0</span>, pow(self.onodes, <span class="number">-0.5</span>), (self.onodes, self.hnodes))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 		<span class="comment"># learning rate</span></span><br><span class="line"> 		self.lr = learningrate</span><br><span class="line"></span><br><span class="line"> 		<span class="comment"># activation function is the sigmoid function</span></span><br><span class="line"> 		self.activation_function = <span class="keyword">lambda</span> x: scipy.special.expit(x)</span><br><span class="line"></span><br><span class="line"> 		<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 	<span class="comment"># train the neural network </span></span><br><span class="line"> 	<span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self, inputs_list, targets_list)</span> :</span></span><br><span class="line"> 		<span class="comment"># convert inputs list to 2d array</span></span><br><span class="line"> 		inputs = numpy.array(inputs_list, ndmin=<span class="number">2</span>).T</span><br><span class="line"> 		targets = numpy.array(targets_list, ndmin=<span class="number">2</span>).T</span><br><span class="line"></span><br><span class="line"> 		<span class="comment"># calculate signals into hidden layer</span></span><br><span class="line"> 		hidden_inputs = numpy.dot(self.wih, inputs)</span><br><span class="line"> 		<span class="comment"># calculate the signals emerging from hidden layer</span></span><br><span class="line"> 		hidden_outputs = self.activation_function(hidden_inputs)</span><br><span class="line"></span><br><span class="line"> 		<span class="comment"># calculate signals into final output layer</span></span><br><span class="line"> 		final_inputs = numpy.dot(self.who, hidden_outputs)</span><br><span class="line"> 		<span class="comment"># calculate the signals emerging from final output layer</span></span><br><span class="line"> 		final_outputs = self.activation_function(final_inputs)</span><br><span class="line"> 		<span class="comment"># output layer error is the (target - actual)</span></span><br><span class="line"> 		output_errors = targets - final_outputs</span><br><span class="line"> 		<span class="comment"># hidden layer error is the output_errors, split by weights, recombined at hidden layer</span></span><br><span class="line"> 		hidden_errors = numpy.dot(self.who.T, output_errors)</span><br><span class="line"></span><br><span class="line"> 		<span class="comment"># update the weights for the links between the hidden and output layers</span></span><br><span class="line"> 		self.who += self.lr * numpy.dot((output_errors * final_outputs * (<span class="number">1.0</span> - final_outputs)), numpy.transpose(hidden_outputs))</span><br><span class="line"></span><br><span class="line"> 		<span class="comment"># update the weights for the links between the input and hidden layers</span></span><br><span class="line"> 		self.wih +- self.lr * numpy.dot((hidden_errors * hidden_outputs * (<span class="number">1.0</span> - hidden_outputs)), numpy.transpose(inputs))</span><br><span class="line"></span><br><span class="line"> 		<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 	<span class="comment"># query the neural network</span></span><br><span class="line"> 	<span class="function"><span class="keyword">def</span> <span class="title">query</span><span class="params">(self, inputs_list)</span> :</span></span><br><span class="line"> 		<span class="comment"># convert inputs list to 2d array</span></span><br><span class="line"> 		inputs = numpy.array(inputs_list, ndmin=<span class="number">2</span>).T</span><br><span class="line"></span><br><span class="line"> 		<span class="comment"># calculate signals into hidden layer</span></span><br><span class="line"> 		hidden_inputs = numpy.dot(self.wih, inputs)</span><br><span class="line"> 		<span class="comment"># calculate the signals emerging from hidden layer</span></span><br><span class="line"> 		hidden_outputs = self.activation_function(hidden_inputs)</span><br><span class="line"></span><br><span class="line"> 		<span class="comment"># calculate signals into final output layer</span></span><br><span class="line"> 		final_inputs = numpy.dot(self.who, hidden_outputs)</span><br><span class="line"> 		<span class="comment"># calculate the signals emerging from final output layer</span></span><br><span class="line"> 		final_outputs = self.activation_function(final_inputs)</span><br><span class="line"></span><br><span class="line"> 		<span class="keyword">return</span> final_outputs</span><br><span class="line"><span class="comment"># number of input, hidden and output nodes</span></span><br><span class="line">input_nodes = <span class="number">784</span></span><br><span class="line">hidden_nodes = <span class="number">100</span></span><br><span class="line">output_nodes = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># learning rate is 0.3</span></span><br><span class="line">learning_rate = <span class="number">0.3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># create instance of neural network</span></span><br><span class="line">n = neuralNetwork(input_nodes, hidden_nodes, output_nodes, learning_rate)</span><br><span class="line"></span><br><span class="line"><span class="comment"># load the mnist training data 	CSV file into a list</span></span><br><span class="line">training_data_file = open(<span class="string">"C:\\Users\\Marvin\\Documents\\notebook\\mnist_dataset\\mnist_train_100.csv"</span>, <span class="string">'r'</span>)</span><br><span class="line">training_data_list = training_data_file.readlines()</span><br><span class="line">training_data_file.close()</span><br><span class="line"></span><br><span class="line"><span class="string">'''data_file=open("C:\\Users\\Marvin\\Documents\\notebook\\mnist_dataset\\mnist_train_100.csv", 'r')</span></span><br><span class="line"><span class="string">data_list = data_file.readlines()</span></span><br><span class="line"><span class="string">data_file.close()</span></span><br><span class="line"><span class="string">print(data_list)'''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># train the neural network</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># go through all records in the training data set</span></span><br><span class="line"><span class="keyword">for</span> record <span class="keyword">in</span> training_data_list:</span><br><span class="line">	<span class="comment"># split th record by the "," commas</span></span><br><span class="line">	all_values = record.split(<span class="string">','</span>)</span><br><span class="line">	<span class="comment"># scale and shift the inputs</span></span><br><span class="line">	inputs = (numpy.asfarray(all_values[<span class="number">1</span>:]) / <span class="number">255.0</span>*<span class="number">0.99</span>) + <span class="number">0.01</span></span><br><span class="line">	<span class="comment"># create the target output values (all 0.01, except the desired label which is 0.99)</span></span><br><span class="line">	targets = numpy.zeros(output_nodes) + <span class="number">0.01</span></span><br><span class="line">	<span class="comment"># all_values[0] is the target label for this record</span></span><br><span class="line">	targets[int(all_values[<span class="number">0</span>])] = <span class="number">0.99</span></span><br><span class="line">	n.train(inputs, targets)</span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">test_data_file = open("C:\\Users\\Marvin\\Documents\\notebook\\mnist_dataset\\mnist_test_10.csv", 'r')</span></span><br><span class="line"><span class="string">test_data_list = test_data_file.readlines()</span></span><br><span class="line"><span class="string">test_data_file.close()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">value = test_data_list[0].split(',')</span></span><br><span class="line"><span class="string">test_inputs = (numpy.asfarray(value[1:]) / 255.0 * 0.99) + 0.01</span></span><br><span class="line"><span class="string">targets = numpy.zeros(output_nodes) + 0.01</span></span><br><span class="line"><span class="string">targets[int(value[0])] = 0.99</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">a = n.query(test_inputs)</span></span><br><span class="line"><span class="string">print(a)'''</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">NeuralNetwork</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">神经网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/机器学习//" class="article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/24/NeuralNetwork/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-欢迎来到白马青蹄" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -224,15 +316,15 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">tag1</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">日志</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">tag2</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">闲聊</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">tag3</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">记录</a>
         		</li>
       		
 		</ul>
@@ -444,15 +536,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">tag1</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">NeuralNetwork</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">tag2</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">神经网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">tag3</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">日志</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">闲聊</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">记录</a>
               </li>
             
             <div class="clearfix"></div>
